@@ -1,0 +1,22 @@
+name: PerfAction for JMeter
+
+on: [push]
+
+jobs:
+  run_performance_tests:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run PerfAction for JMeter
+      uses: QAInsights/PerfAction@f3959d0a69e7f23949add25d7e34a3ae167d6443
+      with:
+        test-plan-path: './Microservice.jmx'
+        args: "--your-optional-arguments-here"
+    - name: upload Results
+      uses: actions/upload-artifact@v2
+      with: 
+        name: jmeter-results
+        path: result.jtl
