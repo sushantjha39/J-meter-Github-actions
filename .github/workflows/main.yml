@@ -8,7 +8,7 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2.4.4
+      uses: actions/checkout@v3
 
     - name: Run PerfAction for JMeter
       uses: QAInsights/PerfAction@f3959d0a69e7f23949add25d7e34a3ae167d6443
@@ -16,7 +16,7 @@ jobs:
         test-plan-path: '.github/workflows/Microservice.jmx'
         args: "--your-optional-arguments-here"
     - name: upload Results
-      uses: actions/upload-artifact@v2.4.4
+      uses: actions/upload-artifact@v3
       with: 
         name: jmeter-results
         path: './result.jtl'
